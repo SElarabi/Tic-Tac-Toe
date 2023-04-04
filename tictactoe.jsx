@@ -81,7 +81,6 @@ const Square = ({ takeTurn, id }) => {
 
 	return (
 		<button
-			// Part 2: update the return statement below to add css classes
 			onClick={() => {
 				setTik(takeTurn(id));
 				setFilled(true);
