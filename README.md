@@ -5,12 +5,18 @@
 Tic Tac Toe Game
 This is a simple Tic Tac Toe game built with ReactJS. It allows two players to play on the same computer, with X and O as the symbols used to mark the squares. The game displays the current player and notifies the winner once the game is over.
 
-Screenshot of Tic Tac Toe game
+Screenshot of Tic Tac Toe game https://selarabi.github.io/Tic-Tac-Toe/
 
 How to Play
 To play the game, simply click on an empty square to fill it with your symbol. The first player to get three symbols in a row (horizontally, vertically, or diagonally) wins the game. If all squares are filled and there is no winner, the game is a tie.
 
-You can restart the game at any time by clicking the "RESTART" button.
+Projected features to be implemented:
+
+- 1- Restart button to allow staring new round of the game.
+- 2- keep log of the winners with count of winning games.
+  How Implementation of those features:
+- 1: the start button with a handler function to reset the Game components and children components
+- 2: a state of counter and array to store player winning logs.
 
 How to Run
 To run the game, follow these steps:
