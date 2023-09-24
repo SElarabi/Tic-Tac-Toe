@@ -12,7 +12,7 @@ To play the game, simply click on an empty square to fill it with your symbol. T
 
 Projected features to be implemented:
 
-- 1- Restart button to allow staring new round of the game.
+- 1- Restart button to allow starting new round of the game.
 - 2- keep log of the winners with count of winning games.
   How Implementation of those features:
 - 1: the start button with a handler function to reset the Game components and children components
