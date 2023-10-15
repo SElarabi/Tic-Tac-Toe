@@ -21,10 +21,141 @@
 	</head>
 
 	<body>
-		<h1>React Tic-tac-toe</h1>
+		<nav
+			class="navbar sticky-top navbar-expand-md navbar-dark m-1"
+			style="background-color: rgb(3, 32, 32)"
+		>
+			<div class="container-fluid shadow-sm">
+				<a class="navbar-brand">
+					<div class="pic-boita">
+						<image
+							class="centered-img"
+							src="imgs/mypic01.JPG "
+							alt=" Eddie profile pic"
+						/>
+					</div>
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarNavDropdown"
+					aria-controls="navbarNavDropdown"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div
+					class="collapse navbar-collapse"
+					id="navbarNavDropdown"
+				>
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								href="https://selarabi.github.io/Portfolio/"
+								>Portfolio</a
+							>
+						</li>
+						<!--projects link-->
+						<li class="nav-item">
+							<a
+								class="nav-link"
+								href="https://selarabi.github.io/Portfolio/projects.html"
+								>Projects</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
-		<!-- You will put our React component inside this div. -->
-		<div id="root"></div>
+		<!--Top of Page-->
+		<div
+			style="
+				background-image: url('imgs/MITBannerHomepage.png');
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center center;
+				color: rgb(250, 255, 254);
+				text-align: center;
+			"
+		>
+			<h1 class="display-1 mb-2 text-decoration-underline">React Tic-tac-toe</h1>
+		</div>
+
+		<div style="background-color: rgb(3, 32, 32)">
+			<p
+				class="text-center text-decoration-underline"
+				style="color: rgb(250, 255, 254)"
+			>
+				MIT Coding Certification: Full Stack Development with MERN - October 2022
+			</p>
+		</div>
+		<main
+			class="text-bg-white text-start"
+			style="padding: 2em"
+		>
+			<!-- You will put our React component inside this div. -->
+
+			<!-- Demo Content-->
+			<div class="container-fluid">
+				<div class="row">
+					<div
+						id="gameDemo "
+						class="col border"
+					>
+						<div
+							id="root"
+							class="border"
+						></div>
+					</div>
+				</div>
+			</div>
+			<br />
+			<!-- Description-->
+
+			<div class="container shadow-lg">
+				<div class="row">
+					<div class="col">
+						<span class="d-block p-2 opacity-75 shadow-lg">
+							<h5 class="card-title display-6">Description</h5>
+
+							<div class="border border-success p-2 mb-2">
+								<article>
+									<p>
+										This is a simple Tic Tac Toe game built with ReactJS. It allows two
+										players to play on the same computer, with X and O as the symbols used
+										to mark the squares. The game displays the current player and notifies
+										the winner once the game is over.
+									</p>
+								</article>
+							</div>
+						</span>
+
+						<div class="card-body">
+							<a
+								href="#"
+								onclick="window.open('https://github.com/SElarabi/PacMen_Exercise','blanck')"
+								class="btn btn-primary opacity-100"
+								>Github repository</a
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br />
+		</main>
+
+		<!--Footer-->
+		<footer
+			style="color: aliceblue; background-color: rgb(3, 32, 32); margin-top: auto"
+		>
+			<div class="container">
+				<p class="text-center mb-0">Copyright &copy; 2023 S.E.Larabi</p>
+			</div>
+		</footer>
 		<!-- bootstrap script -->
 		<script
 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
