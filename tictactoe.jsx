@@ -24,17 +24,24 @@ const Board = () => {
 			<Square
 				takeTurn={takeTurn}
 				id={i}
+				tik={0}
+				filled={false}
 			></Square>
 		);
 	}
 	const restart = () => {
-		setGameState([]);
+		location.reload(); //reload page ** hard reset*
+		// setGameState( [] );
+		// setPlayer(1); // Reset the player to 1 (X starts)
 
 		console.log('restart');
+		console.log('gameState ', gameState);
 	};
-	React.useEffect(() => {}, []);
+	React.useEffect(() => {
+		console.log('render');
+	}, []);
 
-	console.log('re=rendered');
+	// console.log('re=rendered');
 	return (
 		<div className='game-board'>
 			<div className='grid-row'>
@@ -89,14 +96,6 @@ const Square = ({ takeTurn, id }) => {
 		>
 			<h1 className={mark[tik] === 'X' ? 'red' : 'white'}>{mark[tik]}</h1>
 		</button>
-	);
-};
-
-const Game = () => {
-	return (
-		<div className='game'>
-			<Board></Board>
-		</div>
 	);
 };
 
@@ -155,7 +154,13 @@ function isSuperset(set, subset) {
 	}
 	return true;
 }
-
+const Game = () => {
+	return (
+		<div className='game'>
+			<Board></Board>
+		</div>
+	);
+};
 // ========================================
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Game />);
