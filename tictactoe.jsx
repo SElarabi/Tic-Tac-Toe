@@ -11,12 +11,19 @@ const Board = () => {
 	var nextPlayer;
 	if (player === 1) nextPlayer = ' Player x';
 	if (player === 0) nextPlayer = ' Player 0';
-	console.log(`We have a winner ${status}`);
 
 	const takeTurn = (id) => {
-		setGameState([...gameState, { id: id, player: player }]);
-		setPlayer((player + 1) % 2); // get next player
-		return player;
+		// continue game if no winner yet
+		if (checkForWinner(gameState) === 'No Winner Yet') {
+			// id is the square number, gameState is array of pair {square number, player}
+			setGameState([...gameState, { id: id, player: player }]);
+			setPlayer((player + 1) % 2); // get next player
+			// console.log('checkForWinner(gameState) ', checkForWinner(gameState));
+			return player;
+		} else {
+			return 2;
+			//2 is coresponding to '' element in mark array
+		}
 	};
 	function renderSquare(i) {
 		// use properties to pass callback function takeTurn to Child
@@ -33,9 +40,6 @@ const Board = () => {
 		location.reload(); //reload page ** hard reset*
 		// setGameState( [] );
 		// setPlayer(1); // Reset the player to 1 (X starts)
-
-		console.log('restart');
-		console.log('gameState ', gameState);
 	};
 	React.useEffect(() => {
 		console.log('render');
@@ -64,8 +68,20 @@ const Board = () => {
           
           Display the player's turn <h1>
         */}
-				<h1 id='turn'>Next Play: {nextPlayer}</h1>
-				<h1>{status}</h1>
+				<h1 id='turn'>
+					Next Play:{' '}
+					<span style={{ color: player === 1 ? 'red' : 'white' }}>{nextPlayer}</span>
+				</h1>
+				<h1>
+					<span
+						className={
+							checkForWinner(gameState) === 'No Winner Yet' ? '' : 'blinking'
+						}
+						style={{ color: 'white' }}
+					>
+						{status}
+					</span>
+				</h1>
 				<button
 					id='reset'
 					onClick={() => restart()}
@@ -89,9 +105,12 @@ const Square = ({ takeTurn, id }) => {
 	return (
 		<button
 			onClick={() => {
-				setTik(takeTurn(id));
-				setFilled(true);
-				console.log(`Square: ${id} filled by player : ${tik}`);
+				if (!filled) {
+					// Check if the square is not filled
+					setTik(takeTurn(id));
+					setFilled(true);
+					console.log(`Square: ${id} filled by player: ${takeTurn(id)}`);
+				}
 			}}
 		>
 			<h1 className={mark[tik] === 'X' ? 'red' : 'white'}>{mark[tik]}</h1>
@@ -99,7 +118,7 @@ const Square = ({ takeTurn, id }) => {
 	);
 };
 
-// Checking for Winner takes a bit of work
+// Checking for Winner :
 // Use JavaScript Sets to check players choices
 // against winning combinations
 
